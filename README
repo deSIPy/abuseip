@@ -1,1 +1,48 @@
 # abuseip - Consulta de IPs en AbuseIPDB
+
+Herramienta en Python para consultar rápidamente una lista de direcciones IP contra la base de datos de **AbuseIPDB**, con el objetivo de apoyar procesos de investigación y respuesta a incidentes.
+
+Este script toma un archivo de texto con IPs, consulta la API de AbuseIPDB y genera un reporte con categorías y motivos de reporte asociados.
+
+## Características
+
+* Consulta múltiples IPs desde un archivo `.txt`
+* Obtiene información de reputación y motivos de reporte
+* Genera reporte en formato `.csv` listo para analizar o importar a herramientas de seguridad
+* Uso sencillo desde la línea de comandos
+
+## Requisitos
+
+* Python 3.8 o superior
+* Una API Key válida de AbuseIPDB (gratuita): [https://www.abuseipdb.com/register](https://www.abuseipdb.com/register)
+
+## Uso
+
+1. Crear un archivo con una IP por línea. Ejemplo `ips.txt`:
+
+   ```
+   8.8.8.8
+   1.1.1.1
+   185.220.101.1
+   ```
+
+2. Ejecutar el script este buscara archivos .txt en el directorio local y lo presentara en un menu basico de inicio
+
+3. El archivo `reporte.csv` contendrá algo similar a:
+
+   ```csv
+   ip,last_reported,abuse_confidence_score,categories
+   185.220.101.1,2025-01-01,100,Spam;Bruteforce;Malware
+   8.8.8.8,2025-01-01,0,No reports
+   ```
+
+## Roadmap / Próximas mejoras
+
+* Paralelización de consultas para mayor velocidad
+* Cache de resultados para evitar solicitudes repetidas
+* Integración opcional con SIEM / SOAR
+* Exportación en JSON además de CSV
+
+## Contribuciones
+
+¡Los PR y sugerencias son bienvenidos! Si querés colaborar, abrí un issue o enviá tu propuesta.
