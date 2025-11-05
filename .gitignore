@@ -1,3 +1,6 @@
 *.log
 *.csv
 .env
+.idea/*
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
